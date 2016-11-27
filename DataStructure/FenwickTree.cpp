@@ -33,14 +33,3 @@ struct FenwickTree { // 1-based index
     }
 };
 
-int main() {
-    int n = 10;
-    FenwickTree tree (n);
-    tree.update_range(1, 3, 7);
-    tree.update_range(2, 10, 2);
-    for (int i = 1; i <= n; ++i) cout << tree.value(i) << ' '; cout << '\n';
-    for (int i = 1; i <= n; ++i) cout << tree.get(i) << ' '; cout << '\n';
-    // 7 9 9 2 2 2 2 2 2 2
-    // 7 16 25 27 29 31 33 35 37 39
-	return 0;
-}
