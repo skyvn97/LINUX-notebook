@@ -1,0 +1,28 @@
+\documentclass[a4paper,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmonofont{Consolas}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{import}
+\usepackage[top=0.75in,bottom=0.25in,left=0.5in,right=0.5in]{geometry}
+
+\lstset{basicstyle=\footnotesize,breaklines=true,language=C++,showstringspaces=false}
+\setlength{\columnseprule}{0.4pt}
+\renewcommand*{\familydefault}{\ttdefault}
+\newcommand{\code}[2]{\section{#1} \lstinputlisting{#2}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{LINUX - VNU University of Engineering and Technology}
+
+\begin{document}
+\begin{multicols*}{2}
+\begingroup
+\def\addvspace#1{}
+\tableofcontents
