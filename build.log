@@ -1,4 +1,4 @@
-This is LuaTeX, Version beta-0.76.0-2013121407 (rev 4627)  (format=lualatex 2016.11.27)  27 NOV 2016 12:21
+This is LuaTeX, Version beta-0.76.0-2013121407 (rev 4627)  (format=lualatex 2016.11.27)  27 NOV 2016 12:29
  restricted \write18 enabled.
 **build.tex
 (./build.tex
@@ -536,7 +536,7 @@ luaotfload:  then use the possibly updated libraries. The merged
 luaotfload:  version is not supported as it is a frozen instance.
 luaotfload:  Problems can be reported to the ConTeXt mailing list."
 luaotfload: pop namespace from font loader -- non-destructive
-luaotfload: fontloader loaded in 0.037 seconds
+luaotfload: fontloader loaded in 0.038 seconds
 luatexbase-mcb: inserting 'luaotfload.node_processor'
 at position 1 in 'pre_linebreak_filter'
 luatexbase-mcb: inserting 'luaotfload.node_processor'
@@ -1251,7 +1251,7 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmsy7.pfb>
-Output written on build.pdf (26 pages, 407967 bytes).
+Output written on build.pdf (26 pages, 407956 bytes).
 
 PDF statistics: 156 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
