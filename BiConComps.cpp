@@ -1,6 +1,6 @@
 const int N = 1024;
 
-int count, parent[N], n; //n vertices 0..n-1
+int count, parent[N], low[N}, num[N], n; //n vertices 0..n-1
 bool visited[N];
 vector<int> G[N];
 stack<pair<int, int> > s;
@@ -23,7 +23,7 @@ void dfs(int u) {
 			s.push({u, v});
 			parent[v] = u;
 			dfs(v);
-			if (low[v] > num[u]) OutputComp(u, v);
+			if (low[v] >= num[u]) OutputComp(u, v);
 			low[u] = min(low[u], low[v]);
 		} else if (parent[u] != v && num[v] < num[u]) {
 			s.push({u, v});
