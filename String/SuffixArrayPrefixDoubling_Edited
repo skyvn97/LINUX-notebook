@@ -15,6 +15,10 @@ public:
         REP(i, SA.size()) --SA[i];
         #undef REF
     }
+    
+    /** OLD VERSON - causes RE on SEERC 2016, problem B
+    inline bool cmp (const int a, const int b, const int l) { return (y[a] == y[b] && y[a + l] == y[b + l]); }
+    **/
 
     inline bool cmp(int a, int b, int l) {
         if (y[a] != y[b]) return false;
@@ -48,3 +52,12 @@ public:
             else k = 0;
     }
 };
+
+int main() {
+    SuffixArray sa ("mississippi", 256);
+    for (int i = 0; i < sa.N - 1; ++i) cout << sa.SA[i] << ' '; cout << '\n';
+    for (int i = 0; i < sa.N - 1; ++i) cout << sa.LCP[i] << ' '; cout << '\n';
+    // 10 7 4 1 0 9 8 6 3 5 2
+    // 0 1 1 4 0 0 1 0 2 1 3
+    return 0;
+}
