@@ -1,0 +1,50 @@
+class SuffixArray {
+public:
+    string a;
+    int N, m;
+    vector<int> SA, LCP, x, y, w, c;
+
+    SuffixArray(string _a, int m = 256) : a(" "  + _a), N(a.length()), m(m), SA(N), LCP(N),
+                                    x(N), y(N), w(max(m, N)), c(N) {
+        a[0] = 0;
+        DA();
+        kasaiLCP();
+        #define REF(X) { rotate(X.begin(), X.begin() + 1, X.end()); X.pop_back(); }
+        REF(SA); REF(LCP);
+        a = a.substr(1, a.size());
+        REP(i, SA.size()) --SA[i];
+        #undef REF
+    }
+
+    inline bool cmp(int a, int b, int l) {
+        if (y[a] != y[b]) return false;
+        if (a + l < N && b + l < N) return y[a + l] == y[b + l];
+        return a + l >= N && b + l >= N;
+    }
+
+    void sort(void) {
+        REP(i, m) w[i] = 0;
+        REP(i, N) ++w[x[y[i]]];
+        REP(i, m - 1) w[i + 1] += w[i];
+        FORD(i, N - 1, 0) SA[--w[x[y[i]]]] = y[i];
+    }
+
+    void DA(void) {
+        REP(i, N) x[i] = a[i], y[i] = i;
+        sort();
+        for (int i, j = 1, p = 1; p < N; j <<= 1, m = p) {
+            for (p = 0, i = N - j; i < N; i++) y[p++] = i;
+            REP(k, N) if (SA[k] >= j) y[p++] = SA[k] - j;
+            sort();
+            for (swap(x, y), p = 1, x[SA[0]] = 0, i = 1; i < N; i++)
+                x[SA[i]] = cmp(SA[i - 1], SA[i], j) ? p - 1 : p++;
+        }
+    }
+
+    void kasaiLCP(void) {
+        REP(i, N) c[SA[i]] = i;
+        for (int i = 0, j, k = 0; i < N; LCP[c[i++]] = k)
+            if (c[i] > 0) for (k ? k-- : 0, j = SA[c[i] - 1]; a[i + k] == a[j + k]; k++);
+            else k = 0;
+    }
+};
