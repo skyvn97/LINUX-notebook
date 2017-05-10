@@ -49,15 +49,15 @@ vector<Complex> fft(vector<Complex> a, bool invert) {
     return a;
 }
 
-vector<double> multiply(const vector<double> &a, const vector<double> &b) {
-    int n = roundUp(a.size() + b.size() - 1);
-    vector<Complex> pa(n), pb(n);
-    REP(i, a.size()) pa[i] = a[i];
-    REP(i, b.size()) pb[i] = b[i];
+vector<long long> multiply(const vector<int> &a, const vector<int> &b) {
+    int n = roundUp(size(a) + size(b) - 1);
+    vector<Complex> pa (n), pb (n);
+    for(int i = 0; i < size(a); ++i) pa[i] = a[i];
+    for(int i = 0; i < size(b); ++i) pb[i] = b[i];
     pa = fft(pa, false); pb = fft(pb, false);
-    REP(i, n) pa[i] = pa[i] * pb[i];
+    for(int i = 0; i < n; ++i) pa[i] *= pb[i];
     pa = fft(pa, true);
-    vector<double> res(a.size() + b.size() - 1);
-    REP(i, a.size() + b.size() - 1) res[i] = real(pa[i]);
+    vector<long long> res (n);
+    for(int i = 0; i < n; ++i) res[i] = round(real(pa[i]));
     return res;
 }
