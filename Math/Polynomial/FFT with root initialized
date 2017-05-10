@@ -2,9 +2,11 @@ const double PI = acos(-1.0);
 typedef complex<double> Complex;
 
 #define MASK(i) (1LL<<(i))
+#define BIT(x,i) (((x) >> (i)) & 1)
 #define LOG  17
 Complex fftRoot[MASK(LOG)], invRoot[MASK(LOG)];
 
+#define REP(i, n) for (int i = 0, _n = (n); i < _n; i = i + 1)
 void initFFT(void) {
 	REP(i, MASK(LOG)) {
 		double alpha = 2 * PI / MASK(LOG) * i;
