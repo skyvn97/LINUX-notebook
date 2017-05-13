@@ -22,7 +22,7 @@ namespace std {
 }
 
 /* Notes
-    norm(x) = x.real() ^ 2 + x.imag() * 2
+    norm(x) = x.real() ^ 2 + x.imag() ^ 2
     cross(a, b) = a.x * b.y - b.x * a.y    
     dot(a, b) = a.x * b.x + a.y * b.y
 */
