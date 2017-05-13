@@ -20,6 +20,13 @@ namespace std {
         return real(a) != real(b) ? real(a) < real(b) : imag(a) < imag(b);
     }
 }
+
+/* Notes
+    norm(x) = x.real() ^ 2 + x.imag() * 2
+    cross(a, b) = a.x * b.y - b.x * a.y    
+    dot(a, b) = a.x * b.x + a.y * b.y
+*/
+
 double cross(const P& a, const P& b) {
     return imag(conj(a)*b);
 }
